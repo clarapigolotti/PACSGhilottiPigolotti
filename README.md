@@ -1,1 +1,2 @@
 # PACSGhilottiPigolotti
+version without OMP
