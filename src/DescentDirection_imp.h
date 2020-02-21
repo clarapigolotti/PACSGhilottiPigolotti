@@ -6,7 +6,7 @@ template<typename Integrator, typename Integrator_noPoly, UInt ORDER, UInt mydim
 std::unique_ptr<DirectionBase<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>
 DirectionGradient<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::clone() const {
 
-  return std::make_unique<DirectionGradient<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
+  return make_unique<DirectionGradient<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
 
 }
 
@@ -34,7 +34,7 @@ template<typename Integrator, typename Integrator_noPoly, UInt ORDER, UInt mydim
 std::unique_ptr<DirectionBase<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>
 DirectionBFGS<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::clone() const {
 
-  return std::make_unique<DirectionBFGS<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
+  return make_unique<DirectionBFGS<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
 
 }
 

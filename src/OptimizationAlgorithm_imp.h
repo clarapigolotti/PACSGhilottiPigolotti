@@ -26,7 +26,7 @@ template<typename Integrator, typename Integrator_noPoly, UInt ORDER, UInt mydim
 std::unique_ptr<MinimizationAlgorithm<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>
 FixedStep<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::clone() const {
 
-  return std::make_unique<FixedStep<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
+  return make_unique<FixedStep<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
 
 }
 
@@ -252,7 +252,7 @@ template<typename Integrator, typename Integrator_noPoly, UInt ORDER, UInt mydim
 std::unique_ptr<MinimizationAlgorithm<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>
 BacktrackingMethod<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::clone() const {
 
-  return std::make_unique<BacktrackingMethod<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
+  return make_unique<BacktrackingMethod<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
 
 }
 
@@ -316,7 +316,7 @@ template<typename Integrator, typename Integrator_noPoly, UInt ORDER, UInt mydim
 std::unique_ptr<MinimizationAlgorithm<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>
 WolfeMethod<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::clone() const {
 
-  return std::make_unique<WolfeMethod<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
+  return make_unique<WolfeMethod<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(*this);
 
 }
 

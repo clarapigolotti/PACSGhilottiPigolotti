@@ -14,9 +14,9 @@ class DensityInitialization_factory
     const FunctionalProblem<Integrator, Integrator_noPoly, ORDER, mydim, ndim>& fp){
 
       if(!dp.isFvecEmpty())
-    		return std::make_unique<UserInitialization<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp);
+    		return make_unique<UserInitialization<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp);
     	else
-    		return std::make_unique<HeatProcess<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp);
+    		return make_unique<HeatProcess<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp);
 
   }
 

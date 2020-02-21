@@ -22,6 +22,7 @@ class DataProblem{
     Projection<ORDER, mydim, ndim> projection_;
     SpMat R0_, R1_, GlobalPsi_;
     MatrixXr P_, PsiQuad_;
+    static constexpr UInt Nodes = mydim==2? 3*ORDER : 6*ORDER-2;
 
     //! A method to compute the finite element matrices.
     void fillFEMatrices();
@@ -89,9 +90,9 @@ class DataProblem{
     //! A method returning a node. It calls the same method of MeshHandler class.
     inline Point getPoint(Id id) const {return mesh_.getPoint(id);}
     //! A method returning an element. It calls the same method of MeshHandler class.
-    inline auto getElement(Id id) const {return mesh_.getElement(id);}
+    inline Element<Nodes,mydim,ndim> getElement(Id id) const {return mesh_.getElement(id);}
     //! A method returning the element in which he point in input is located. It calls the same method of MeshHandler class.
-    inline auto findLocationNaive(Point point) const {return mesh_.findLocationNaive(point);}
+    inline Element<Nodes,mydim,ndim> findLocationNaive(Point point) const {return mesh_.findLocationNaive(point);}
 
     //getter for matrices
     //! A method returning the P matrix.

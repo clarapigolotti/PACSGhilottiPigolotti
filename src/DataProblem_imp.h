@@ -45,8 +45,6 @@ void DataProblem<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::fillFEMatri
 template<typename Integrator, typename Integrator_noPoly, UInt ORDER, UInt mydim, UInt ndim>
 void DataProblem<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::fillPsiQuad(){
 
-  constexpr UInt Nodes = mydim==2? 3*ORDER : 6*ORDER-2;
-
 	PsiQuad_.resize(Integrator_noPoly::NNODES, Nodes);
 
 	//Set the properties of the reference element
@@ -88,8 +86,6 @@ Real DataProblem<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::FEintegrate
 
   Real total_sum = 0.;
 
-  constexpr UInt Nodes = mydim==2? 3*ORDER : 6*ORDER-2;
-
   for(UInt triangle=0; triangle<mesh_.num_elements(); triangle++){
 
     FiniteElement<Integrator_noPoly, ORDER, mydim, ndim> fe;
@@ -129,8 +125,6 @@ DataProblem<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::computePsi(const
 	Real eps = 2.2204e-016,
 		   tolerance = 100 * eps;
 
-	// Constexpr is used for selecting the right number of nodes to pass as a template parameter to the Element object.In case of planar domain(i.e. mydim==2), we have that the number of nodes is 3*ORDER. In case of volumetric domain (i.e. mydim==3), we have that the number of nodes is 4 nodes if ORDER==1 and 10 nodes if ORDER==2, so the expression is 6*ORDER-2. ORDER==2 if mydim==3 is not yet implemented.
-	constexpr UInt Nodes = mydim ==2? 3*ORDER : 6*ORDER-2;
 	Element<Nodes, mydim, ndim> tri_activated;
 	Eigen::Matrix<Real,Nodes,1> coefficients;
 

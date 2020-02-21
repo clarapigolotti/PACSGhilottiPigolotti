@@ -14,9 +14,9 @@ class DescentDirection_factory
     const FunctionalProblem<Integrator, Integrator_noPoly, ORDER, mydim, ndim>& fp, const std::string& d)
 	{
 		if (d=="Gradient")
-			return std::make_unique<DirectionGradient<Integrator,Integrator_noPoly,ORDER,mydim,ndim>>(fp);
+			return make_unique<DirectionGradient<Integrator,Integrator_noPoly,ORDER,mydim,ndim>>(fp);
 		else if (d=="BFGS")
-			return std::make_unique<DirectionBFGS<Integrator,Integrator_noPoly,ORDER,mydim,ndim>>(fp, dp.getNumNodes());
+			return make_unique<DirectionBFGS<Integrator,Integrator_noPoly,ORDER,mydim,ndim>>(fp, dp.getNumNodes());
 		else{
 
 			#ifdef R_VERSION_
@@ -25,7 +25,7 @@ class DescentDirection_factory
 			std::cout<<"Unknown direction option - using gradient direction"<<std::endl;
 			#endif
 
-			return std::make_unique<DirectionGradient<Integrator,Integrator_noPoly,ORDER,mydim,ndim>>(fp);
+			return make_unique<DirectionGradient<Integrator,Integrator_noPoly,ORDER,mydim,ndim>>(fp);
 		}
 	}
 

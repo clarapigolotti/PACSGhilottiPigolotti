@@ -15,13 +15,13 @@ class Preprocess_factory
     std::shared_ptr<MinimizationAlgorithm<Integrator, Integrator_noPoly, ORDER, mydim, ndim>> ma, const std::string& p){
 
 			if(p=="RightCV")
-				return std::make_unique<RightCrossValidation<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp, ma);
+				return make_unique<RightCrossValidation<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp, ma);
 			else if(p=="SimplifiedCV")
-				return std::make_unique<SimplifiedCrossValidation<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp, ma);
+				return make_unique<SimplifiedCrossValidation<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp, ma);
 			else if(p=="NoCrossValidation")
-      	return std::make_unique<NoCrossValidation<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp);
+      	return make_unique<NoCrossValidation<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp);
 			else
-				return std::make_unique<RightCrossValidation<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp, ma);
+				return make_unique<RightCrossValidation<Integrator, Integrator_noPoly, ORDER, mydim, ndim>>(dp, fp, ma);
 
   }
 
