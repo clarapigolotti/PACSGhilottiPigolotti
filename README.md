@@ -12,8 +12,8 @@ The source code is written in C++ and interfaced with R through .Call.
 
 Download the .zip of the code, unzip it, then from the R console type
 
-install.packages('/path/to/fdaPDE', type='source', repos=NULL)
+install.packages('/path/to/PACSGhilottiPigolotti', type='source', repos=NULL)
 
-To install the package, please make sure that you have the package devtools already intalled. Moreover, it could be asked to install all the library dependencies (rgl, plot3D, plot3Drgl, RcppEigen, geometry).
+To install the package, please make sure that you have the package devtools already installed. Moreover, it could be asked to install all the library dependencies (rgl, plot3D, plot3Drgl, RcppEigen, geometry).
 
 
