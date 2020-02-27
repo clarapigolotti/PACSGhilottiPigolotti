@@ -44,15 +44,14 @@ VectorXr
 DirectionBFGS<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::computeDirection(const VectorXr& g, const VectorXr& grad){
 
   if(updateH_){
-    VectorXr delta = g - gOld_;
-    VectorXr gamma = grad - gradOld_;
+    const VectorXr delta = g - gOld_;
+    const VectorXr gamma = grad - gradOld_;
 
-    Real d_dot_gamma = delta.dot(gamma);
-    VectorXr H_gamma = HOld_*gamma;
+    const Real dg = delta.dot(gamma);
+    const VectorXr Hg = HOld_*gamma;
 
-    HOld_ = HOld_ + (1 + (gamma.dot(H_gamma))/d_dot_gamma)*(delta*delta.transpose())/d_dot_gamma -
-          (H_gamma*delta.transpose() + delta*gamma.transpose()*HOld_)/d_dot_gamma;
-
+    HOld_ = HOld_ + (1 + (gamma.dot(Hg))/dg)*(delta*delta.transpose())/dg -
+          (Hg*delta.transpose() + delta*Hg.transpose())/dg;
   }
 
   gOld_ = g;
