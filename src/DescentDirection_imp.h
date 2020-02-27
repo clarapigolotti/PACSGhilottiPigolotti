@@ -47,8 +47,11 @@ DirectionBFGS<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::computeDirecti
     VectorXr delta = g - gOld_;
     VectorXr gamma = grad - gradOld_;
 
-    HOld_ = HOld_ + (1 + (gamma.dot(HOld_*gamma))/(delta.dot(gamma)))*(delta*delta.transpose())/(delta.dot(gamma)) -
-          (HOld_*gamma*delta.transpose() + delta*gamma.transpose()*HOld_)/(delta.dot(gamma));
+    Real d_dot_gamma = delta.dot(gamma);
+    VectorXr H_gamma = HOld_*gamma;
+
+    HOld_ = HOld_ + (1 + (gamma.dot(H_gamma))/d_dot_gamma)*(delta*delta.transpose())/d_dot_gamma -
+          (H_gamma*delta.transpose() + delta*gamma.transpose()*HOld_)/d_dot_gamma;
 
   }
 
