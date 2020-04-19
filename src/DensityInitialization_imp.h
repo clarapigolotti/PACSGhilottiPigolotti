@@ -49,7 +49,7 @@ HeatProcess<Integrator, Integrator_noPoly, ORDER, mydim, ndim>::computePatchArea
     Element<Nodes, mydim, ndim> current_element = this->dataProblem_.getElement(t);
 
     for(UInt i=0; i<Nodes; i++){
-      patch_areas_[current_element[i].id()] += std::abs(current_element.getArea());
+      patch_areas_[current_element[i].id()] += std::abs(this->dataProblem_.getMesh().elementMeasure(t));
     }
   }
 }
