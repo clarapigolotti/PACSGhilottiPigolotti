@@ -567,15 +567,15 @@ SEXP Smooth_FPCA(SEXP Rlocations, SEXP Rdatamatrix, SEXP Rmesh, SEXP Rorder, SEX
  	std::string preprocess_method=CHAR(STRING_ELT(RpreprocessMethod, 0));
 
 	if(order== 1 && mydim==2 && ndim==2)
- 		return(DE_skeleton<IntegratorTriangleP2, IntegratorGaussTriangle3, 1, 2, 2>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, RnThreads_int, RnThreads_l, RnThreads_fold, Rmesh, step_method, direction_method, preprocess_method));
+ 		return(DE_skeleton<IntegratorTriangleP2, IntegratorGaussTriangle3, 1, 2, 2>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, Rmesh, step_method, direction_method, preprocess_method));
  	else if(order== 2 && mydim==2 && ndim==2)
- 		return(DE_skeleton<IntegratorTriangleP4, IntegratorGaussTriangle4, 2, 2, 2>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, RnThreads_int, RnThreads_l, RnThreads_fold, Rmesh, step_method, direction_method, preprocess_method));
+ 		return(DE_skeleton<IntegratorTriangleP4, IntegratorGaussTriangle4, 2, 2, 2>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, Rmesh, step_method, direction_method, preprocess_method));
  	else if(order== 1 && mydim==2 && ndim==3)
- 		return(DE_skeleton<IntegratorTriangleP2, IntegratorGaussTriangle3, 1, 2, 3>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, RnThreads_int, RnThreads_l, RnThreads_fold, Rmesh, step_method, direction_method, preprocess_method));
+ 		return(DE_skeleton<IntegratorTriangleP2, IntegratorGaussTriangle3, 1, 2, 3>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, Rmesh, step_method, direction_method, preprocess_method));
  	else if(order== 2 && mydim==2 && ndim==3)
- 		return(DE_skeleton<IntegratorTriangleP4, IntegratorGaussTriangle4, 2, 2, 3>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, RnThreads_int, RnThreads_l, RnThreads_fold, Rmesh, step_method, direction_method, preprocess_method));
+ 		return(DE_skeleton<IntegratorTriangleP4, IntegratorGaussTriangle4, 2, 2, 3>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, Rmesh, step_method, direction_method, preprocess_method));
 	else if(order == 1 && mydim==3 && ndim==3)
-			return(DE_skeleton<IntegratorTetrahedronP2, IntegratorGaussTetra16, 1, 3, 3>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, RnThreads_int, RnThreads_l, RnThreads_fold, Rmesh, step_method, direction_method, preprocess_method));
+			return(DE_skeleton<IntegratorTetrahedronP2, IntegratorGaussTetra16, 1, 3, 3>(Rdata, Rorder, Rfvec, RheatStep, RheatIter, Rlambda, Rnfolds, Rnsim, RstepProposals, Rtol1, Rtol2, Rprint, Rmesh, step_method, direction_method, preprocess_method));
  	return(NILSXP);
  }
 
